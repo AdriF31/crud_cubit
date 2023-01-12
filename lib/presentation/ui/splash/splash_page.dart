@@ -18,16 +18,16 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 3), () {
+    Timer(const Duration(seconds: 3), () {
       if (storage.getLoginState() == true) {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => EmployeePage()),
+            MaterialPageRoute(builder: (context) => const EmployeePage()),
             (route) => false);
       } else {
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => LoginPage()),
+            MaterialPageRoute(builder: (context) => const LoginPage()),
             (route) => false);
       }
     });
@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body:  Center(
         child: Text('Ini Splashscreen'),
       ),

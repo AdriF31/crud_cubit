@@ -1,4 +1,3 @@
-import 'package:crud_cubit/data/models/get_employee.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class Storage {

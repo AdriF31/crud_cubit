@@ -14,7 +14,7 @@ class CreateEmployeePage extends StatelessWidget {
     TextEditingController positionController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tambah Data'),
+        title: const Text('Tambah Data'),
       ),
       body: BlocConsumer<CreateEmployeeCubit, CreateEmployeeState>(
         listener: (context, state) {
@@ -22,7 +22,7 @@ class CreateEmployeePage extends StatelessWidget {
             Fluttertoast.showToast(msg: state.message);
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => EmployeePage()),
+                MaterialPageRoute(builder: (context) => const EmployeePage()),
                 (route) => false);
 
           }
@@ -31,14 +31,14 @@ class CreateEmployeePage extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return state is CreateEmployeeStateLoading?Center(child: CircularProgressIndicator(),): Padding(
+          return state is CreateEmployeeStateLoading?const Center(child: CircularProgressIndicator(),): Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'NIK',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -52,7 +52,7 @@ class CreateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: '321213231332131',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.credit_card,
                             color: Colors.black,
                           ),
@@ -68,7 +68,7 @@ class CreateEmployeePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Nama',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -82,7 +82,7 @@ class CreateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'john',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.person,
                             color: Colors.black,
                           ),
@@ -98,7 +98,7 @@ class CreateEmployeePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Position',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -112,7 +112,7 @@ class CreateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'manager',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.credit_card,
                             color: Colors.black,
                           ),
@@ -134,7 +134,7 @@ class CreateEmployeePage extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Tambah Data',
                             style: TextStyle(color: Colors.white, fontSize: 18),

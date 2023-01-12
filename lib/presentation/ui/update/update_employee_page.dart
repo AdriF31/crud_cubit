@@ -1,5 +1,4 @@
 import 'package:crud_cubit/cubit/update/update_employee_cubit.dart';
-import 'package:crud_cubit/data/storage.dart';
 import 'package:crud_cubit/presentation/ui/employee/employee_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,7 +10,7 @@ class UpdateEmployeePage extends StatelessWidget {
   final String nik;
   final String position;
 
-  UpdateEmployeePage(
+  const UpdateEmployeePage(
       {Key? key,
       required this.id,
       required this.name,
@@ -21,14 +20,13 @@ class UpdateEmployeePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Storage storage = Storage();
     TextEditingController nikController = TextEditingController(text: nik);
     TextEditingController nameController = TextEditingController(text: name);
     TextEditingController positionController =
         TextEditingController(text: position);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Update Employee'),
+        title: const Text('Update Employee'),
       ),
       body: BlocConsumer<UpdateEmployeeCubit, UpdateEmployeeState>(
         listener: (context, state) {
@@ -36,7 +34,7 @@ class UpdateEmployeePage extends StatelessWidget {
             Fluttertoast.showToast(msg: state.message);
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => EmployeePage()),
+                MaterialPageRoute(builder: (context) => const EmployeePage()),
                 (route) => false);
           }
         },
@@ -48,7 +46,7 @@ class UpdateEmployeePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'NIK',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -62,7 +60,7 @@ class UpdateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: '321213231332131',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.credit_card,
                             color: Colors.black,
                           ),
@@ -78,7 +76,7 @@ class UpdateEmployeePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Nama',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -92,7 +90,7 @@ class UpdateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'john',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.person,
                             color: Colors.black,
                           ),
@@ -108,7 +106,7 @@ class UpdateEmployeePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Position',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
@@ -122,7 +120,7 @@ class UpdateEmployeePage extends StatelessWidget {
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: 'manager',
-                          prefixIcon: Icon(
+                          prefixIcon: const Icon(
                             Icons.credit_card,
                             color: Colors.black,
                           ),
@@ -150,7 +148,7 @@ class UpdateEmployeePage extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Ubah Data',
                             style: TextStyle(color: Colors.white, fontSize: 18),

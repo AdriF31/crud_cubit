@@ -26,33 +26,33 @@ class _EmployeePageState extends State<EmployeePage>{
     Storage storage = Storage();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Employee'),
+        title: const Text('Employee'),
         actions: [
           IconButton(onPressed: (){
             storage.isLogin(false);
             Fluttertoast.showToast(msg: 'Berhasil Logout');
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>LoginPage()), (route) => false);
-          }, icon: Icon(Icons.logout))
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>const LoginPage()), (route) => false);
+          }, icon: const Icon(Icons.logout))
         ],
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => CreateEmployeePage()));
+                MaterialPageRoute(builder: (context) => const CreateEmployeePage()));
           },
-          child: Icon(Icons.add)),
+          child: const Icon(Icons.add)),
       body: BlocBuilder<EmployeeCubit, EmployeeState>(
         builder: (context, state) {
           if (state is EmployeeStateLoading) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
           if (state is EmployeeStateLoaded) {
             return RefreshIndicator(
               onRefresh: ()async{
-                BlocProvider.of<EmployeeCubit>(context)..employeeRequestEvent();
+                BlocProvider.of<EmployeeCubit>(context).employeeRequestEvent();
               },
               child: SingleChildScrollView(
                 child: Padding(
@@ -62,7 +62,7 @@ class _EmployeePageState extends State<EmployeePage>{
                     children: [
                       Text(
                         'Selamat datang ${storage.getUserEmail()}',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(
                         height: 16,
@@ -99,7 +99,7 @@ class _EmployeePageState extends State<EmployeePage>{
               ),
             );
           }
-          return SizedBox.shrink();
+          return const SizedBox.shrink();
         },
       ),
     );

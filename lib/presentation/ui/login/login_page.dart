@@ -1,6 +1,5 @@
 import 'package:crud_cubit/cubit/login/login_cubit.dart';
 import 'package:crud_cubit/data/storage.dart';
-import 'package:hive/hive.dart';
 import 'package:crud_cubit/presentation/ui/employee/employee_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,7 +17,7 @@ class LoginPage extends StatelessWidget {
     var formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
@@ -28,7 +27,7 @@ class LoginPage extends StatelessWidget {
             storage.isLogin(true);
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => EmployeePage()),
+                MaterialPageRoute(builder: (context) => const EmployeePage()),
                 (route) => false);
           }
           if (state is LoginStateFailed) {
@@ -48,7 +47,7 @@ class LoginPage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Email',
                           style: TextStyle(color: Colors.black, fontSize: 16),
                         ),
@@ -71,7 +70,7 @@ class LoginPage extends StatelessWidget {
                           decoration: InputDecoration(
                               focusColor: Colors.green,
                               hintText: 'Email',
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.black,
                               ),
@@ -87,7 +86,7 @@ class LoginPage extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Password',
                           style: TextStyle(color: Colors.black, fontSize: 16),
                         ),
@@ -109,7 +108,7 @@ class LoginPage extends StatelessWidget {
                           decoration: InputDecoration(
                               focusColor: Colors.green,
                               hintText: 'Password',
-                              prefixIcon: Icon(
+                              prefixIcon: const Icon(
                                 Icons.key,
                                 color: Colors.black,
                               ),
@@ -139,10 +138,10 @@ class LoginPage extends StatelessWidget {
                         ),
                         child: Center(
                           child: state is LoginStateLoading
-                              ? Center(
+                              ? const Center(
                                   child: CircularProgressIndicator(color: Colors.white60,),
                                 )
-                              : Text(
+                              : const Text(
                                   'Login',
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 18),

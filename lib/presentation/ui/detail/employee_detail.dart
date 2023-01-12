@@ -30,13 +30,13 @@ class EmployeeDetailPage extends StatelessWidget {
             Fluttertoast.showToast(msg: state.message);
             Navigator.pushAndRemoveUntil(
                 context,
-                MaterialPageRoute(builder: (context) => EmployeePage()),
+                MaterialPageRoute(builder: (context) => const EmployeePage()),
                 (route) => false);
           }
         },
         child: Scaffold(
           appBar: AppBar(
-            title: Text('Detail'),
+            title: const Text('Detail'),
             actions: [
               IconButton(
                   onPressed: () {
@@ -50,19 +50,19 @@ class EmployeeDetailPage extends StatelessWidget {
                                   position: position,
                                 )));
                   },
-                  icon: Icon(Icons.edit)),
+                  icon: const Icon(Icons.edit)),
               IconButton(
                   onPressed: () {
                     BlocProvider.of<DeleteEmployeeCubit>(context)
-                      ..deleteEmployeeRequestEvent(id);
+                      .deleteEmployeeRequestEvent(id);
                   },
-                  icon: Icon(Icons.delete)),
+                  icon: const Icon(Icons.delete)),
             ],
           ),
           body:
               BlocBuilder<DetailCubit, DetailState>(builder: (context, state) {
             if (state is DetailStateLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -75,21 +75,21 @@ class EmployeeDetailPage extends StatelessWidget {
                     children: [
                       Text(
                         state.detailEmployee?.data?.name ?? '',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                       const SizedBox(
                         height: 8,
                       ),
                       Text(
                         state.detailEmployee?.data?.nik ?? '',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                       const SizedBox(
                         height: 8,
                       ),
                       Text(
                         state.detailEmployee?.data?.position ?? '',
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     ],
                   ),
@@ -97,7 +97,7 @@ class EmployeeDetailPage extends StatelessWidget {
               );
             }
 
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }),
         ),
       ),
