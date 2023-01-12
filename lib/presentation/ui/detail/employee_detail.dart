@@ -8,8 +8,17 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class EmployeeDetailPage extends StatelessWidget {
   String id;
+  String name;
+  String nik;
+  String position;
 
-  EmployeeDetailPage({Key? key, required this.id}) : super(key: key);
+  EmployeeDetailPage(
+      {Key? key,
+      required this.id,
+      required this.name,
+      required this.nik,
+      required this.position})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +26,12 @@ class EmployeeDetailPage extends StatelessWidget {
       create: (context) => DetailCubit()..detailRequestEvent(id),
       child: BlocListener<DeleteEmployeeCubit, DeleteEmployeeState>(
         listener: (context, state) {
-          if(state is DeleteEmployeeStateSuccess){
+          if (state is DeleteEmployeeStateSuccess) {
             Fluttertoast.showToast(msg: state.message);
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>EmployeePage()), (route) => false);
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => EmployeePage()),
+                (route) => false);
           }
         },
         child: Scaffold(
@@ -31,7 +43,12 @@ class EmployeeDetailPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UpdateEmployeePage(id: id)));
+                            builder: (context) => UpdateEmployeePage(
+                                  id: id,
+                                  nik: nik,
+                                  name: name,
+                                  position: position,
+                                )));
                   },
                   icon: Icon(Icons.edit)),
               IconButton(

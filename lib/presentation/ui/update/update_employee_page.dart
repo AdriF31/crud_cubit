@@ -7,16 +7,25 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 class UpdateEmployeePage extends StatelessWidget {
   final String id;
+  final String name;
+  final String nik;
+  final String position;
 
-
-  const UpdateEmployeePage({Key? key, required this.id}) : super(key: key);
+  UpdateEmployeePage(
+      {Key? key,
+      required this.id,
+      required this.name,
+      required this.nik,
+      required this.position})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Storage storage = Storage();
-    TextEditingController nikController = TextEditingController(text: '');
-    TextEditingController nameController = TextEditingController(text: '');
-    TextEditingController positionController = TextEditingController(text: '');
+    TextEditingController nikController = TextEditingController(text: nik);
+    TextEditingController nameController = TextEditingController(text: name);
+    TextEditingController positionController =
+        TextEditingController(text: position);
     return Scaffold(
       appBar: AppBar(
         title: Text('Update Employee'),
