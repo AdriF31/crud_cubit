@@ -140,7 +140,7 @@ class LoginPage extends StatelessWidget {
                         child: Center(
                           child: state is LoginStateLoading
                               ? Center(
-                                  child: CircularProgressIndicator(),
+                                  child: CircularProgressIndicator(color: Colors.white60,),
                                 )
                               : Text(
                                   'Login',

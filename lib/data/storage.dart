@@ -8,14 +8,6 @@ class Storage {
     return box.put('email', email);
   }
 
-  saveEmployee(GetEmployee employee) {
-    return box.put('employee', employee);
-  }
-
-  getEmployee() {
-    return box.get('employee');
-  }
-
   getUserEmail() {
     return box.get('email');
   }

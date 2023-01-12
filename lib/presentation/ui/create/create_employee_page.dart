@@ -24,6 +24,7 @@ class CreateEmployeePage extends StatelessWidget {
                 context,
                 MaterialPageRoute(builder: (context) => EmployeePage()),
                 (route) => false);
+
           }
           if (state is CreateEmployeeStateFailed) {
             Fluttertoast.showToast(msg: state.message);
@@ -124,7 +125,6 @@ class CreateEmployeePage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        // controller.createEmployee();
                         BlocProvider.of<CreateEmployeeCubit>(context).createEmployeeRequestEvent(nameController.text, nikController.text, positionController.text);
                       },
                       child: Container(
