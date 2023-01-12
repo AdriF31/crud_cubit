@@ -7,9 +7,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class EmployeePage extends StatelessWidget {
+class EmployeePage extends StatefulWidget {
   const EmployeePage({Key? key}) : super(key: key);
 
+  @override
+  State<EmployeePage> createState() => _EmployeePageState();
+}
+
+class _EmployeePageState extends State<EmployeePage>{
+
+  @override
+  void initState() {
+    BlocProvider.of<EmployeeCubit>(context).employeeRequestEvent();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Storage storage = Storage();
@@ -67,6 +78,9 @@ class EmployeePage extends StatelessWidget {
                                               builder: (context) =>
                                                   EmployeeDetailPage(
                                                     id: e.id ?? '',
+                                                    name: e.name??'',
+                                                    nik: e.nik??'',
+                                                    position: e.position??'',
                                                   )));
                                     },
                                     child: ListTile(
