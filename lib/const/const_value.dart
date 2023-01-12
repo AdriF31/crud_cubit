@@ -1,0 +1,1 @@
+const baseUrl = 'https://63a167d8a543280f775561e5.mockapi.io/flutter';
