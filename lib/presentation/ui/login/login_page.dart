@@ -12,7 +12,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TextEditingController emailController = TextEditingController();
     TextEditingController passwordController = TextEditingController();
-
     Storage storage = Storage();
     var formKey = GlobalKey<FormState>();
     return Scaffold(
@@ -139,7 +138,9 @@ class LoginPage extends StatelessWidget {
                         child: Center(
                           child: state is LoginStateLoading
                               ? const Center(
-                                  child: CircularProgressIndicator(color: Colors.white60,),
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white60,
+                                  ),
                                 )
                               : const Text(
                                   'Login',

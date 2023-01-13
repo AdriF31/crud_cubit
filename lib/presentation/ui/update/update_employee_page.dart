@@ -57,6 +57,7 @@ class UpdateEmployeePage extends StatelessWidget {
                     TextField(
                       controller: nikController,
                       enabled: true,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: '321213231332131',
@@ -91,7 +92,7 @@ class UpdateEmployeePage extends StatelessWidget {
                           focusColor: Colors.green,
                           hintText: 'john',
                           prefixIcon: const Icon(
-                            Icons.person,
+                            Icons.person_outline,
                             color: Colors.black,
                           ),
                           border: OutlineInputBorder(
@@ -121,7 +122,7 @@ class UpdateEmployeePage extends StatelessWidget {
                           focusColor: Colors.green,
                           hintText: 'manager',
                           prefixIcon: const Icon(
-                            Icons.credit_card,
+                            Icons.chair_outlined,
                             color: Colors.black,
                           ),
                           border: OutlineInputBorder(

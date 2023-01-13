@@ -20,7 +20,6 @@ class CrudCubitApp extends StatelessWidget {
         BlocProvider(create: (context) => CreateEmployeeCubit()),
         BlocProvider(create: (context) => UpdateEmployeeCubit()),
         BlocProvider(create: (context) => DeleteEmployeeCubit()),
-
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

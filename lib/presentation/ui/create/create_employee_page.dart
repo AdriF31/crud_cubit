@@ -21,8 +21,7 @@ class CreateEmployeePage extends StatelessWidget {
         listener: (context, state) {
           if (state is CreateEmployeeStateSuccess) {
             Fluttertoast.showToast(msg: state.message);
-            Navigator.pushReplacement(context,
-                MaterialPageRoute(builder: (context) => EmployeePage()));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>EmployeePage()), (route) => false);
           }
           if (state is CreateEmployeeStateFailed) {
             Fluttertoast.showToast(msg: state.message);
@@ -47,6 +46,7 @@ class CreateEmployeePage extends StatelessWidget {
                     TextField(
                       controller: nikController,
                       enabled: true,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           focusColor: Colors.green,
                           hintText: '321213231332131',
@@ -81,7 +81,7 @@ class CreateEmployeePage extends StatelessWidget {
                           focusColor: Colors.green,
                           hintText: 'john',
                           prefixIcon: const Icon(
-                            Icons.person,
+                            Icons.person_outline,
                             color: Colors.black,
                           ),
                           border: OutlineInputBorder(
@@ -111,7 +111,7 @@ class CreateEmployeePage extends StatelessWidget {
                           focusColor: Colors.green,
                           hintText: 'manager',
                           prefixIcon: const Icon(
-                            Icons.credit_card,
+                            Icons.chair_outlined,
                             color: Colors.black,
                           ),
                           border: OutlineInputBorder(

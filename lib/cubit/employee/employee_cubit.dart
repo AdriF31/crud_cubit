@@ -8,7 +8,7 @@ import 'package:equatable/equatable.dart';
 part 'employee_state.dart';
 
 class EmployeeCubit extends Cubit<EmployeeState> {
-  EmployeeRepoImpl employeeRepo = EmployeeRepoImpl();
+  EmployeeRepo employeeRepo = EmployeeRepoImpl();
 
   EmployeeCubit() : super(EmployeeInitial());
 

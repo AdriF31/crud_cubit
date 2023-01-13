@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:crud_cubit/data/repositories/employee_repo.dart';
 import 'package:crud_cubit/data/repositories/employee_repo_impl.dart';
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
@@ -6,7 +7,7 @@ import 'package:meta/meta.dart';
 part 'create_employee_state.dart';
 
 class CreateEmployeeCubit extends Cubit<CreateEmployeeState> {
-  EmployeeRepoImpl employeeRepo = EmployeeRepoImpl();
+  EmployeeRepo employeeRepo = EmployeeRepoImpl();
 
   CreateEmployeeCubit() : super(CreateEmployeeInitial());
 
