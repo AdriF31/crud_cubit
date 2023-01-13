@@ -54,7 +54,7 @@ class EmployeeDetailPage extends StatelessWidget {
               IconButton(
                   onPressed: () {
                     BlocProvider.of<DeleteEmployeeCubit>(context)
-                      .deleteEmployeeRequestEvent(id);
+                        .deleteEmployeeRequestEvent(id);
                   },
                   icon: const Icon(Icons.delete)),
             ],
@@ -69,34 +69,31 @@ class EmployeeDetailPage extends StatelessWidget {
             if (state is DetailStateLoaded) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        state.detailEmployee?.data?.name ?? '',
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        state.detailEmployee?.data?.nik ?? '',
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        state.detailEmployee?.data?.position ?? '',
-                        style: const TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Nama\t\t: ${state.detailEmployee?.data?.name}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'NIK\t\t: ${state.detailEmployee?.data?.nik}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Text(
+                      'Posisi\t\t: ${state.detailEmployee?.data?.position}',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ],
                 ),
               );
             }
-
             return const SizedBox.shrink();
           }),
         ),

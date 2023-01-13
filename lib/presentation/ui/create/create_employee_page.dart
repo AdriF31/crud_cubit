@@ -12,6 +12,7 @@ class CreateEmployeePage extends StatelessWidget {
     TextEditingController nikController = TextEditingController();
     TextEditingController nameController = TextEditingController();
     TextEditingController positionController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Tambah Data'),
@@ -20,18 +21,15 @@ class CreateEmployeePage extends StatelessWidget {
         listener: (context, state) {
           if (state is CreateEmployeeStateSuccess) {
             Fluttertoast.showToast(msg: state.message);
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const EmployeePage()),
-                (route) => false);
-
+            Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => EmployeePage()));
           }
           if (state is CreateEmployeeStateFailed) {
             Fluttertoast.showToast(msg: state.message);
           }
         },
         builder: (context, state) {
-          return state is CreateEmployeeStateLoading?const Center(child: CircularProgressIndicator(),): Padding(
+          return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
@@ -125,7 +123,9 @@ class CreateEmployeePage extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        BlocProvider.of<CreateEmployeeCubit>(context).createEmployeeRequestEvent(nameController.text, nikController.text, positionController.text);
+                        BlocProvider.of<CreateEmployeeCubit>(context)
+                            .createEmployeeRequestEvent(nameController.text,
+                                nikController.text, positionController.text);
                       },
                       child: Container(
                         width: MediaQuery.of(context).size.width,
@@ -134,11 +134,18 @@ class CreateEmployeePage extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: const Center(
-                          child: Text(
-                            'Tambah Data',
-                            style: TextStyle(color: Colors.white, fontSize: 18),
-                          ),
+                        child: Center(
+                          child: state is CreateEmployeeStateLoading
+                              ? Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white60,
+                                  ),
+                                )
+                              : Text(
+                                  'Tambah Data',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18),
+                                ),
                         ),
                       ),
                     ),

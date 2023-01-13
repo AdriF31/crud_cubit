@@ -148,8 +148,8 @@ class UpdateEmployeePage extends StatelessWidget {
                           color: Colors.blue,
                           borderRadius: BorderRadius.circular(25),
                         ),
-                        child: const Center(
-                          child: Text(
+                        child:Center(
+                          child: state is UpdateEmployeeStateLoading?Center(child: CircularProgressIndicator(color:Colors.white60),):Text(
                             'Ubah Data',
                             style: TextStyle(color: Colors.white, fontSize: 18),
                           ),
