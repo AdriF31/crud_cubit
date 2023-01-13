@@ -18,7 +18,6 @@ class EmployeeRepoImpl implements EmployeeRepo {
   FutureOr<GetEmployee?> getEmployee() async {
     try {
       var response = await dio.get(baseUrl);
-      // storage.saveEmployee(GetEmployee.fromJson(response.data));
       return GetEmployee.fromJson(response.data);
     } on DioError catch (e) {
       return GetEmployee.fromJson(e.response?.data);
