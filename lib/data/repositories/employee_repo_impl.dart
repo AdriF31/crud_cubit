@@ -12,7 +12,6 @@ import 'package:crud_cubit/data/models/put_employee.dart';
 
 class EmployeeRepoImpl implements EmployeeRepo {
   Dio dio = Dio();
-  Storage storage = Storage();
 
   @override
   FutureOr<GetEmployee?> getEmployee() async {
